@@ -71,7 +71,7 @@ RUN git clone https://github.com/mikeheddes/piranha.git \
 WORKDIR /root
 RUN git clone https://github.com/darioizzo/audi.git \
   && mkdir audi/build && cd audi/build \
-  && git checkout tags/1.6.1 \
+  && git checkout e684501a48fd4baaf4ec7329b657765cbd54a679 \
   && patch ../CMakeLists.txt -i ../../patches/audi/CMakeLists.txt.diff \
   && emconfigure cmake .. -DBoost_INCLUDE_DIR=/usr/local/include \
   -DBoost_LIBRARY_DIR=/usr/local/lib -DEIGEN3_INCLUDE_DIR=/usr/include/eigen3 \
