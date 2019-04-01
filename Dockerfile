@@ -1,4 +1,4 @@
-FROM mikeheddes/emsdk32
+FROM mikeheddes/emscripten-32bit
 
 # Install eigen3 dependency
 RUN apt-get -y update \
