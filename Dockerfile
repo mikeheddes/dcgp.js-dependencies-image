@@ -9,7 +9,8 @@ COPY ./patches ./patches
 
 # boost
 WORKDIR /root
-RUN curl -L -o boost_1_68_0.tar.bz2 https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2 \
+RUN ~/emsdk/emsdk_env.sh \
+  && curl -L -o boost_1_68_0.tar.bz2 https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2 \
   && tar --bzip2 -xf ./boost_1_68_0.tar.bz2 \
   && cd ./boost_1_68_0 \
   && ./bootstrap.sh \
@@ -20,7 +21,8 @@ RUN curl -L -o boost_1_68_0.tar.bz2 https://dl.bintray.com/boostorg/release/1.68
 
 # gmp
 WORKDIR /root
-RUN curl -L -o gmp_6_1_2.tar.bz2 https://gmplib.org/download/gmp/gmp-6.1.2.tar.bz2 \
+RUN ~/emsdk/emsdk_env.sh \
+  && curl -L -o gmp_6_1_2.tar.bz2 https://gmplib.org/download/gmp/gmp-6.1.2.tar.bz2 \
   && tar --bzip2 -xf ./gmp_6_1_2.tar.bz2 \
   && cd gmp-6.1.2 \
   && CC_FOR_BUILD=/usr/bin/gcc emconfigure ./configure --build i686-pc-linux-gnu \
@@ -30,7 +32,8 @@ RUN curl -L -o gmp_6_1_2.tar.bz2 https://gmplib.org/download/gmp/gmp-6.1.2.tar.b
 
 # mpfr
 WORKDIR /root
-RUN curl -L -o mpfr-4.0.1.tar.bz2 https://www.mpfr.org/mpfr-4.0.1/mpfr-4.0.1.tar.bz2 \
+RUN ~/emsdk/emsdk_env.sh \
+  && curl -L -o mpfr-4.0.1.tar.bz2 https://www.mpfr.org/mpfr-4.0.1/mpfr-4.0.1.tar.bz2 \
   && tar --bzip2 -xf ./mpfr-4.0.1.tar.bz2 \
   && mkdir ./patches/mpfr \
   && curl -L -o ./patches/mpfr/mpfr-4.0.1-allpatches https://www.mpfr.org/mpfr-4.0.1/allpatches \
@@ -42,7 +45,8 @@ RUN curl -L -o mpfr-4.0.1.tar.bz2 https://www.mpfr.org/mpfr-4.0.1/mpfr-4.0.1.tar
 
 # mp++
 WORKDIR /root
-RUN git clone https://github.com/bluescarni/mppp.git \
+RUN ~/emsdk/emsdk_env.sh \
+  && git clone https://github.com/bluescarni/mppp.git \
   && cd mppp \
   && git checkout tags/v0.9 \
   && mkdir build && cd build \
@@ -53,7 +57,8 @@ RUN git clone https://github.com/bluescarni/mppp.git \
 
 # piranha
 WORKDIR /root
-RUN git clone https://github.com/mikeheddes/piranha.git \
+RUN ~/emsdk/emsdk_env.sh \
+  && git clone https://github.com/mikeheddes/piranha.git \
   && mkdir piranha/build && cd piranha/build \
   && git checkout feat/add-single-thread-option \
   && patch ../CMakeLists.txt -i ../../patches/piranha/CMakeLists.txt.diff \
@@ -69,7 +74,8 @@ RUN git clone https://github.com/mikeheddes/piranha.git \
 
 # audi
 WORKDIR /root
-RUN git clone https://github.com/darioizzo/audi.git \
+RUN ~/emsdk/emsdk_env.sh \
+  && git clone https://github.com/darioizzo/audi.git \
   && mkdir audi/build && cd audi/build \
   && git checkout e684501a48fd4baaf4ec7329b657765cbd54a679 \
   && patch ../CMakeLists.txt -i ../../patches/audi/CMakeLists.txt.diff \
@@ -82,7 +88,8 @@ RUN git clone https://github.com/darioizzo/audi.git \
 
 # dcgp
 WORKDIR /root
-RUN git clone https://github.com/darioizzo/dcgp.git \
+RUN ~/emsdk/emsdk_env.sh \
+  && git clone https://github.com/darioizzo/dcgp.git \
   && mkdir dcgp/build && cd dcgp/build \
   && git checkout dead0689a4dba6bc7bf1ad748c6065accb130b8a \
   && patch ../CMakeLists.txt -i ../../patches/dcgp/CMakeLists.txt.diff \
