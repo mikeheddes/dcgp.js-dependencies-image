@@ -61,7 +61,8 @@ RUN git clone https://github.com/mikeheddes/piranha.git \
   -i ../../patches/piranha/PiranhaCompilerLinkerSettings.cmake.diff \
   && patch ../cmake_modules/PiranhaPlatformSettings.cmake \
   -i ../../patches/piranha/PiranhaPlatformSettings.cmake.diff \
-  && emconfigure cmake .. -DGMP_INCLUDE_DIR=/usr/local/include \
+  && emconfigure cmake .. -DPIRANHA_SINGLE_THREAD=ON \
+  -DGMP_INCLUDE_DIR=/usr/local/include \
   -DMPFR_INCLUDE_DIR=/usr/local/include -DMPFR_LIBRARIES=/usr/local/lib \
   -DGMP_LIBRARIES=/usr/local/lib -DBoost_INCLUDE_DIR=/usr/local/include \
   -DBoost_LIBRARY_DIR_RELEASE=/usr/local/lib \
