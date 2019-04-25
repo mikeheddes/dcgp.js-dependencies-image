@@ -85,7 +85,7 @@ RUN git clone https://github.com/darioizzo/audi.git \
 WORKDIR /root
 RUN git clone https://github.com/darioizzo/dcgp.git \
   && mkdir dcgp/build && cd dcgp/build \
-  && git checkout e85f0f3de2a13737356f08d2a4433c5e6b67909c \
+  && git checkout 27e6c0d555037cbba6ba5125b51de3eeb694ea6d \
   && patch ../CMakeLists.txt -i ../../patches/dcgp/CMakeLists.txt.diff \
   && emconfigure cmake .. -DDCGP_SINGLE_THREAD=ON -DDCGP_BUILD_TESTS=OFF \
   -DBoost_INCLUDE_DIR=/usr/local/include -DBoost_LIBRARY_DIR_RELEASE=/usr/local/lib \
